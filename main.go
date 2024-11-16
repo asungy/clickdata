@@ -1,13 +1,9 @@
 package main
 
 import (
-	c "clickdata/components"
-	"fmt"
-	"log"
-	"net/http"
 	"os"
-
-	"github.com/a-h/templ"
+	"strconv"
+	"clickdata/server"
 )
 
 const (
@@ -19,32 +15,26 @@ const (
 
 var serverAddr string
 
-func init() {
-	serverAddr = func(defaultAddr, defaultPort string) string {
-		addr := os.Getenv(addrEnv)
-		if addr == "" {
-			addr = defaultAddr
-		}
-		port := os.Getenv(portEnv)
-		if port == "" {
-			port = defaultPort
-		}
-		return fmt.Sprintf("%s:%s", addr, port)
-	}(defaultAddr, defaultPort)
-
-}
-
 func main() {
-	count := 0
+	address := func(defaultAddr string) string {
+		result := os.Getenv(addrEnv)
+		if result == "" {
+			result = defaultAddr
+		}
+		return result
+	}(defaultAddr)
 
-	http.Handle("/", templ.Handler(c.Index()))
+	port, err := func(defaultPort string) (int, error) {
+		result := os.Getenv(portEnv)
+		if result == "" {
+			result = defaultPort
+		}
+		return strconv.Atoi(result)
+	}(defaultPort)
 
-	http.HandleFunc("POST /click", func(w http.ResponseWriter, r *http.Request) {
-		count += 1
-		w.Write([]byte(fmt.Sprintf("%d", count)))
-	})
+	if err != nil {
+		panic(err)
+	}
 
-	log.Printf("Serving on %s", serverAddr)
-
-	http.ListenAndServe(serverAddr, nil)
+	server.NewServer(address, port).Run()
 }

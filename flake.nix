@@ -41,6 +41,12 @@
               ${pkgs.templ}/bin/templ generate
             '';
           };
+
+          devShells.default = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              templ
+            ];
+          };
         })
     );
 }

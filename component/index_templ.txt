@@ -1,0 +1,1 @@
+<html><head><title>Click Data</title><script src=\"https://unpkg.com/htmx.org@2.0.3\"></script></head><body>This <button hx-post=\"/click\" hx-target=\"#count\">button</button> has been clicked <span id=\"count\">0</span> times.</body></html>
