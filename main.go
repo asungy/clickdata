@@ -31,6 +31,7 @@ func init() {
 		}
 		return fmt.Sprintf("%s:%s", addr, port)
 	}(defaultAddr, defaultPort)
+
 }
 
 func main() {
@@ -44,5 +45,6 @@ func main() {
 	})
 
 	log.Printf("Serving on %s", serverAddr)
+
 	http.ListenAndServe(serverAddr, nil)
 }

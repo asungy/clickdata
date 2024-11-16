@@ -4,3 +4,15 @@ schema = 3
   [mod."github.com/a-h/templ"]
     version = "v0.2.793"
     hash = "sha256-WThPVkb56osTrMJZf0WIoqbsM9DHGaZsG47MS0eoseA="
+  [mod."github.com/antlr4-go/antlr/v4"]
+    version = "v4.13.0"
+    hash = "sha256-98nKVlsgv1S7vMvGuKOQINOKkiEvrlX5DCSmyr6Mr+A="
+  [mod."github.com/libsql/sqlite-antlr4-parser"]
+    version = "v0.0.0-20240327125255-dbf53b6cbf06"
+    hash = "sha256-M6o/wDxJ6G47Ae4oIpkhd3n5H3PkCSmY+HHcTTlEB7E="
+  [mod."github.com/tursodatabase/go-libsql"]
+    version = "v0.0.0-20241113154718-293fe7f21b08"
+    hash = "sha256-Kpu+PYu/k4+1JrvabDPQkt07YywM+SPEYLHZ1eCarmA="
+  [mod."golang.org/x/exp"]
+    version = "v0.0.0-20230515195305-f3d0a9c9a5cc"
+    hash = "sha256-X8rchJgrMLv+0t68lFqaW6S3Dd8USzmclKOU1qR9W4M="
