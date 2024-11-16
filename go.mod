@@ -1,3 +1,6 @@
-module example.com/gomod2nix-template
+module clickdata
 
-go 1.17
+go 1.23.2
+
+require github.com/a-h/templ v0.2.793
+

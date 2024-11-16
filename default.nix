@@ -13,9 +13,13 @@
 }:
 
 buildGoApplication {
-  pname = "myapp";
-  version = "0.1";
+  pname = "clickdata";
+  version = "0.1.0";
   pwd = ./.;
   src = ./.;
   modules = ./gomod2nix.toml;
+
+  nativeBuildInputs = with pkgs; [
+    templ
+  ];
 }
